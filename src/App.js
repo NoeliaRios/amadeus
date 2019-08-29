@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+// import Main from './components/Main';
+import Input from './components/Input';
 import './App.css';
+import Navbar from './components/Navbar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        }
+    };
+
+    render() {
+        return (
+            <div className="App">
+                <Navbar />
+                <div className="main">
+                <h1>Cheap Flights Best Deals</h1>
+                <h4>Search hundreds of travel sites at once</h4>
+                    <Input />
+                </div>
+
+
+            </div>
+        )
+    }
 }
+
 
 export default App;

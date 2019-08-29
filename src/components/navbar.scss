@@ -1,0 +1,41 @@
+@mixin center() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin space() {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;    
+}
+@mixin between() {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+
+
+.navbar{
+    background-color: transparent;
+    @include between();
+    height: 70px;
+    .list{
+        @include space();
+        width:50%;
+        img{
+            width: 100px;
+        }
+        a{
+            text-decoration: none;
+
+        }
+    }
+    
+    .login{
+        @include space();
+        width:20%;
+        img{
+            height:20px;
+        }
+    }
+}
