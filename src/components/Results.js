@@ -8,13 +8,18 @@ class Results extends Component {
         }
     };
 
+    componentDidMount(){
+        
+    }
+
     render() {
+        const {departure, arrival, checkIn, checkOut} = this.props.fields;
         return (
             <div className="results">
-                <p>Departure:{this.props.fields.departure}
-                Arrival:{this.props.fields.arrival}
-                Check In:{this.props.fields.checkIn}
-                Check Out: {this.props.fields.checkOut}
+                <p>Departure:{departure}
+                Arrival:{arrival}
+                Check In:{checkIn}
+                Check Out: {checkOut}
                 </p>
                 
             </div>
