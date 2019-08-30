@@ -6,4 +6,7 @@
     background-size: cover;
     background-position: center;background-repeat: no-repeat;
     z-index: 1;
+    font-family: 'Roboto', sans-serif;
+    color:#fff;
+box-shadow:inset 0px 0px 0px 1000px rgba(0,0,0,0.4);
 }
