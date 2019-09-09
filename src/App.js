@@ -3,7 +3,7 @@ import Results from "./components/Results";
 import Input from "./components/Input";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+// import { BrowserRouter, Route, Link } from "react-router-dom";
 
 class App extends Component {
   constructor(props) {

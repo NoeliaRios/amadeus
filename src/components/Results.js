@@ -4,7 +4,9 @@ import "./results.scss";
 class Results extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      vuelos: []
+    };
   }
 
   componentDidMount() {
@@ -40,7 +42,10 @@ class Results extends Component {
         )
           .then(res => res.json())
           .then(data => {
-            console.log(data);
+            this.setState({
+              vuelos: data.results
+            });
+            console.log(this.state);
           });
       });
   }
