@@ -4,31 +4,23 @@ import "./input.scss";
 class Hero extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      departure: "",
-      arrival: "",
-      checkIn: "",
-      checkOut: ""
-    };
+    this.state = {};
   }
 
   handleInputChange = e => {
     e.preventDefault();
     this.setState({
+      // query: e.target.value
       [e.target.name]: e.target.value
     });
   };
 
   handleSubmit = e => {
     e.preventDefault();
+    const query = this.state.query;
     console.log("los datos son", this.state);
-    this.props.handleSubmit(this.state);
-    // this.setState({
-    //     departure: '',
-    //     arrival: '',
-    //     checkIn: '',
-    //     checkOut: '',
-    // })
+
+    this.props.handleQuery(query);
   };
   render() {
     return (
@@ -37,35 +29,35 @@ class Hero extends Component {
         <h4>Search hundreds of travel sites at once</h4>
         <form>
           <input
-            name="departure"
+            name="iataOrigin"
             type="text"
             placeholder="Departure"
             value={this.state.departure}
             onChange={this.handleInputChange}
           ></input>
           <input
-            name="arrival"
+            name="iataDest"
             type="text"
             placeholder="Arrival"
             value={this.state.arrival}
             onChange={this.handleInputChange}
           ></input>
           <input
-            name="checkIn"
+            name="fromDate"
             type="date"
             placeholder="dd/mm/yyyy"
             value={this.state.date}
             onChange={this.handleInputChange}
           ></input>
           <input
-            name="checkOut"
+            name="toDate"
             type="date"
             placeholder="dd/mm/yyyy"
             value={this.state.date}
             onChange={this.handleInputChange}
           ></input>
           <input
-            name="passengers"
+            name="adults"
             type="number"
             placeholder="1"
             value={this.state.passengers}

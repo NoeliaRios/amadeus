@@ -5,7 +5,11 @@ class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      vuelos: []
+      iataOrigin: "",
+      iataDest: "",
+      fromDate: "",
+      toDate: "",
+      adults:""
     };
   }
 
@@ -31,9 +35,10 @@ class Results extends Component {
       .then(res => res.json())
       .then(data => {
         const accessToken = data.access_token;
+        const iataOrigin= {this.props.query}
 
         fetch(
-          "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=SYD&destinationLocationCode=BKK&departureDate=2020-01-01&returnDate=2020-01-05&adults=2",
+          "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${iataOrigin}&destinationLocationCode=${iataDest}&departureDate=${fromDate}&returnDate=${toData}&adults=${adults}&max=50",
           {
             headers: {
               Authorization: `Bearer ${accessToken}`
@@ -43,7 +48,12 @@ class Results extends Component {
           .then(res => res.json())
           .then(data => {
             this.setState({
-              vuelos: data.results
+              vuelos: data.data,
+              iataOrigin: "",
+              iataDest: "",
+              fromDate: "",
+              toDate: "",
+              adults: ""
             });
             console.log(this.state);
           });
@@ -51,11 +61,11 @@ class Results extends Component {
   }
 
   render() {
-    const { departure, arrival, checkIn, checkOut } = this.props.fields;
+    const { arrival, checkIn, checkOut } = this.props.fields;
     return (
       <div className="results">
         <p>
-          Departure:{departure}
+          Departure:{this.state.vuelos.data}
           Arrival:{arrival}
           Check In:{checkIn}
           Check Out: {checkOut}

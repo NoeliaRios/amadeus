@@ -8,25 +8,36 @@ import Navbar from "./components/Navbar";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      fields: {}
-    };
+    this.state = {};
   }
 
-  handleSubmit = fields => {
-    this.setState({ fields });
+  handleQuery = q => {
+    this.setState({
+      iataOrigin: "",
+      iataDest: "",
+      fromDate: "",
+      toDate: "",
+      adults: ""
+    });
+  };
+
+  handleSubmit = f => {
+    this.setState({});
   };
 
   render() {
     return (
       <div className="App">
         <Navbar />
-        <Input handleSubmit={fields => this.handleSubmit(fields)} />
+        <Input
+          handleQuery={this.handleQuery}
+          handleSubmit={fields => this.handleSubmit(fields)}
+        />
         {/* <p>{JSON.stringify(this.state.fields)}</p> */}
         {this.state ? (
           <Results
             handleSubmit={this.handleSubmit}
-            fields={this.state.fields}
+            query={this.state.handleQuery}
           />
         ) : null}
       </div>
