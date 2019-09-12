@@ -4,7 +4,13 @@ import "./input.scss";
 class Hero extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      iataOrigin: "",
+      iataDest: "",
+      fromDate: "",
+      toDate: "",
+      adults: ""
+    };
   }
 
   handleInputChange = e => {
@@ -32,35 +38,35 @@ class Hero extends Component {
             name="iataOrigin"
             type="text"
             placeholder="Departure"
-            value={this.state.departure}
+            value={this.state.iataOrigin}
             onChange={this.handleInputChange}
           ></input>
           <input
             name="iataDest"
             type="text"
             placeholder="Arrival"
-            value={this.state.arrival}
+            value={this.state.iataDest}
             onChange={this.handleInputChange}
           ></input>
           <input
             name="fromDate"
             type="date"
             placeholder="dd/mm/yyyy"
-            value={this.state.date}
+            value={this.state.fromDate}
             onChange={this.handleInputChange}
           ></input>
           <input
             name="toDate"
             type="date"
             placeholder="dd/mm/yyyy"
-            value={this.state.date}
+            value={this.state.toDate}
             onChange={this.handleInputChange}
           ></input>
           <input
             name="adults"
             type="number"
             placeholder="1"
-            value={this.state.passengers}
+            value={this.state.adults}
             onChange={this.handleInputChange}
           ></input>
 

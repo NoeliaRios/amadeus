@@ -5,11 +5,12 @@ class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      vuelos: [],
       iataOrigin: "",
       iataDest: "",
       fromDate: "",
       toDate: "",
-      adults:""
+      adults: ""
     };
   }
 
@@ -35,10 +36,14 @@ class Results extends Component {
       .then(res => res.json())
       .then(data => {
         const accessToken = data.access_token;
-        const iataOrigin= {this.props.query}
+        const iataOrigin = this.props.iataOrigin;
+        const iataDest = this.props.iataDest;
+        const fromDate = this.props.fromDate;
+        const toDate = this.props.toDate;
+        const adults = this.props.adults;
 
         fetch(
-          "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${iataOrigin}&destinationLocationCode=${iataDest}&departureDate=${fromDate}&returnDate=${toData}&adults=${adults}&max=50",
+          `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${iataOrigin}&destinationLocationCode=${iataDest}&departureDate=${fromDate}&returnDate=${toDate}&adults=${adults}&max=50`,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`
@@ -48,12 +53,12 @@ class Results extends Component {
           .then(res => res.json())
           .then(data => {
             this.setState({
-              vuelos: data.data,
-              iataOrigin: "",
-              iataDest: "",
-              fromDate: "",
-              toDate: "",
-              adults: ""
+              vuelos: data.data
+              // iataOrigin: data.data.iataOrigin,
+              // iataDest: data.data.iataDest,
+              // fromDate: data.data.fromDate,
+              // toDate: data.data.toDate,
+              // adults: data.data.adults
             });
             console.log(this.state);
           });
@@ -61,14 +66,13 @@ class Results extends Component {
   }
 
   render() {
-    const { arrival, checkIn, checkOut } = this.props.fields;
     return (
       <div className="results">
         <p>
           Departure:{this.state.vuelos.data}
-          Arrival:{arrival}
-          Check In:{checkIn}
-          Check Out: {checkOut}
+          Arrival:{this.state.iataDest}
+          Check In:{this.state.fromDate}
+          Check Out: {this.state.toDate}
         </p>
       </div>
     );

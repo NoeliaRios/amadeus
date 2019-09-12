@@ -21,25 +21,16 @@ class App extends Component {
     });
   };
 
-  handleSubmit = f => {
-    this.setState({});
-  };
-
   render() {
     return (
       <div className="App">
         <Navbar />
         <Input
           handleQuery={this.handleQuery}
-          handleSubmit={fields => this.handleSubmit(fields)}
+          // handleSubmit={query => this.handleSubmit(q)}
         />
         {/* <p>{JSON.stringify(this.state.fields)}</p> */}
-        {this.state ? (
-          <Results
-            handleSubmit={this.handleSubmit}
-            query={this.state.handleQuery}
-          />
-        ) : null}
+        {this.state ? <Results handleQuery={this.handleQuery} /> : null}
       </div>
     );
   }
