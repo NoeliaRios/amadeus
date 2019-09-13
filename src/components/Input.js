@@ -23,10 +23,9 @@ class Hero extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const query = this.state.query;
     console.log("los datos son", this.state);
 
-    this.props.handleQuery(query);
+    this.props.handleQuery(this.state);
   };
   render() {
     return (
@@ -51,14 +50,15 @@ class Hero extends Component {
           <input
             name="fromDate"
             type="date"
-            placeholder="dd/mm/yyyy"
+            format="yyyy-mm-dd"
+            placeholder="yyyy/mm/dd"
             value={this.state.fromDate}
             onChange={this.handleInputChange}
           ></input>
           <input
             name="toDate"
             type="date"
-            placeholder="dd/mm/yyyy"
+            placeholder="yyyy/mm/dd"
             value={this.state.toDate}
             onChange={this.handleInputChange}
           ></input>

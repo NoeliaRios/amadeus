@@ -13,11 +13,11 @@ class App extends Component {
 
   handleQuery = q => {
     this.setState({
-      iataOrigin: "",
-      iataDest: "",
-      fromDate: "",
-      toDate: "",
-      adults: ""
+      iataOrigin: q.iataOrigin,
+      iataDest: q.iataDest,
+      fromDate: q.fromDate,
+      toDate: q.toDate,
+      adults: q.adults
     });
   };
 
@@ -30,7 +30,16 @@ class App extends Component {
           // handleSubmit={query => this.handleSubmit(q)}
         />
         {/* <p>{JSON.stringify(this.state.fields)}</p> */}
-        {this.state ? <Results handleQuery={this.handleQuery} /> : null}
+        {this.state ? (
+          <Results
+            handleQuery={this.handleQuery}
+            iataOrigin={this.state.iataOrigin}
+            iataDest={this.state.iataDest}
+            fromDate={this.state.fromDate}
+            toDate={this.state.toDate}
+            adults={this.state.adults}
+          />
+        ) : null}
       </div>
     );
   }

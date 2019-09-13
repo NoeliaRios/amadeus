@@ -6,7 +6,7 @@ class Results extends Component {
     super(props);
     this.state = {
       vuelos: [],
-      iataOrigin: "",
+      iataOrigin: [],
       iataDest: "",
       fromDate: "",
       toDate: "",
@@ -53,14 +53,14 @@ class Results extends Component {
           .then(res => res.json())
           .then(data => {
             this.setState({
-              vuelos: data.data
-              // iataOrigin: data.data.iataOrigin,
-              // iataDest: data.data.iataDest,
-              // fromDate: data.data.fromDate,
-              // toDate: data.data.toDate,
-              // adults: data.data.adults
+              vuelos: data.data,
+              iataOrigin: data.iataOrigin,
+              iataDest: data.iataDest,
+              fromDate: data.fromDate,
+              toDate: data.toDate,
+              adults: data.adults
             });
-            console.log(this.state);
+            console.log(data);
           });
       });
   }
@@ -69,7 +69,7 @@ class Results extends Component {
     return (
       <div className="results">
         <p>
-          Departure:{this.state.vuelos.data}
+          Departure:{this.state.vuelos}
           Arrival:{this.state.iataDest}
           Check In:{this.state.fromDate}
           Check Out: {this.state.toDate}
