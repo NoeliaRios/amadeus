@@ -55,10 +55,10 @@ class Results extends Component {
             this.setState({
               vuelos: data.data,
               iataOrigin: iataOrigin,
-              iataDest: data.iataDest,
-              fromDate: data.fromDate,
-              toDate: data.toDate,
-              adults: data.adults
+              iataDest: iataDest,
+              fromDate: fromDate,
+              toDate: toDate,
+              adults: adults
             });
             console.log(data);
           });
