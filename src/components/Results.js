@@ -54,7 +54,7 @@ class Results extends Component {
           .then(data => {
             this.setState({
               vuelos: data.data,
-              iataOrigin: data.iataOrigin,
+              iataOrigin: iataOrigin,
               iataDest: data.iataDest,
               fromDate: data.fromDate,
               toDate: data.toDate,
@@ -66,16 +66,18 @@ class Results extends Component {
   }
 
   render() {
-    return (
-      <div className="results">
-        <p>
-          Departure:{this.state.vuelos}
-          Arrival:{this.state.iataDest}
-          Check In:{this.state.fromDate}
-          Check Out: {this.state.toDate}
-        </p>
-      </div>
-    );
+    if (this.state.iataOrigin) {
+      return (
+        <div className="results">
+          <p>
+            Departure:{this.state.iataOrigin}
+            Arrival:{this.state.iataDest}
+            Check In:{this.state.fromDate}
+            Check Out: {this.state.toDate}
+          </p>
+        </div>
+      );
+    }
   }
 }
 

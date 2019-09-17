@@ -21,7 +21,7 @@ fetch(`https://test.api.amadeus.com/v1/security/oauth2/token`, {
     const accessToken = data.access_token;
 
     fetch(
-      `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=SYD&destinationLocationCode=BKK&departureDate=2020-01-01&returnDate=2020-01-05&adults=2`,
+      `fetch('https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=SYD&destinationLocationCode=BKK&departureDate=2020-01-01&returnDate=2020-01-05&adults=2`,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`
