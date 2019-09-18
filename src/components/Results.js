@@ -1,16 +1,18 @@
 import React, { Component } from "react";
+import ResultsItem from "./ResultItem";
 import "./results.scss";
+// import { thisExpression } from "@babel/types";
 
 class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      vuelos: [],
-      iataOrigin: [],
-      iataDest: "",
-      fromDate: "",
-      toDate: "",
-      adults: ""
+      vuelos: []
+      // iataOrigin: [],
+      // iataDest: "",
+      // fromDate: "",
+      // toDate: "",
+      // adults: ""
     };
   }
 
@@ -53,12 +55,12 @@ class Results extends Component {
           .then(res => res.json())
           .then(data => {
             this.setState({
-              vuelos: data.data,
-              iataOrigin: iataOrigin,
-              iataDest: iataDest,
-              fromDate: fromDate,
-              toDate: toDate,
-              adults: adults
+              vuelos: data.data
+              // iataOrigin: data.id,
+              // iataDest: data.iataDest,
+              // fromDate: data.fromDate,
+              // toDate: data.toDate,
+              // adults: data.adults
             });
             console.log(data);
           });
@@ -66,18 +68,23 @@ class Results extends Component {
   }
 
   render() {
-    if (this.state.iataOrigin) {
-      return (
-        <div className="results">
-          <p>
-            Departure:{this.state.iataOrigin}
-            Arrival:{this.state.iataDest}
-            Check In:{this.state.fromDate}
-            Check Out: {this.state.toDate}
-          </p>
+    return (
+      <div className="results">
+        <h1>Results</h1>
+        <div className="items">
+          {this.state.vuelos.map(i => (
+            <ResultsItem data={i} />
+          ))}
         </div>
-      );
-    }
+
+        {/* <p>
+          Departure:{this.state.iataOrigin}
+          Arrival:{this.state.iataDest}
+          Check In:{this.state.fromDate}
+          Check Out: {this.state.toDate}
+        </p> */}
+      </div>
+    );
   }
 }
 
