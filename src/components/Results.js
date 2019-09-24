@@ -76,13 +76,6 @@ class Results extends Component {
             <ResultsItem data={i} />
           ))}
         </div>
-
-        {/* <p>
-          Departure:{this.state.iataOrigin}
-          Arrival:{this.state.iataDest}
-          Check In:{this.state.fromDate}
-          Check Out: {this.state.toDate}
-        </p> */}
       </div>
     );
   }

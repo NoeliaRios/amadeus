@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./input.scss";
 
-class Hero extends Component {
+class Input extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,20 +9,23 @@ class Hero extends Component {
       iataDest: "",
       fromDate: "",
       toDate: "",
-      adults: ""
+      adults: "",
+      didSearch: false
     };
   }
 
   handleInputChange = e => {
     e.preventDefault();
     this.setState({
-      // query: e.target.value
       [e.target.name]: e.target.value
     });
   };
 
   handleSubmit = e => {
     e.preventDefault();
+    // this.setState({
+    //   didSearch: true
+    // });
     console.log("los datos son", this.state);
 
     this.props.handleQuery(this.state);
@@ -79,4 +82,4 @@ class Hero extends Component {
   }
 }
 
-export default Hero;
+export default Input;
